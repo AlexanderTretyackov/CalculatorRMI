@@ -11,7 +11,7 @@ public class InOutController {
     }
 
     //ввод выражения
-    private static String inputExpression() {
+    public static String inputExpression() {
         Scanner in = new Scanner(System.in);
 
         System.out.print("Input expression:");
@@ -23,7 +23,7 @@ public class InOutController {
     }
 
     //вывод результата
-    private static void outputResult(String expression) throws RemoteException, NotBoundException {
+    public static void outputResult(String expression) throws RemoteException, NotBoundException {
         if (isValid(expression)) {
             Solution solution = new Solution();
             long result = solution.getResult(expression);
