@@ -26,8 +26,14 @@ public class InOutController {
     public static void outputResult(String expression) throws RemoteException, NotBoundException {
         if (isValid(expression)) {
             Solution solution = new Solution();
-            long result = solution.getResult(expression);
-            System.out.printf("Result: %d", result);
+            try{
+                long result = solution.getResult(expression);
+                System.out.printf("Result: %d", result);
+            }
+            catch (ArithmeticException ex)
+            {
+                System.out.print("Error! Division by zero!");
+            }
         }
         else
             System.out.print("Error! Invalid expression!");
